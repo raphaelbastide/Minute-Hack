@@ -1,0 +1,151 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font: 20px/27px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: white;
+	text-align:center;
+	padding:100px;
+  background: #000;
+}
+
+.make {
+  margin: 0 auto;
+	color:#333;
+  width: 400px;
+  padding: 20px;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  height: 38px;
+  margin: 2px 0 20px 0;
+  font-weight: 500;
+	padding:0 4px;
+
+  background: #fff;
+  border: 0;
+}
+.input:focus {
+  border-color: #1e9ce6;
+  outline: 0;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  height: 42px;
+  margin-top: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #494d59;
+  text-align: center;
+  background: #fcfcfc;
+  border: 2px outset;
+}
+.button:active {
+	border: 2px inset;
+}
+.button:focus {
+  outline: 0;
+}
+h1{
+	margin:0 0 20px;
+}
+h3{
+	text-align:left;
+	margin:20px 0 6px 0;
+	font-size:.8em;
+}
+.switch {
+  height: 32px;
+  margin-bottom: 15px;
+  padding: 4px;
+  background: #333;
+}
+
+.switch-input {
+  display: none;
+}
+
+.switch-label {
+  float: left;
+  width: 50%;
+  line-height: 32px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.c3 .switch-label {
+	width: 33%;
+}
+
+.switch-input:checked + .switch-label {
+  font-weight: 500;
+  color: #434248;
+  background: white;
+}
+a{
+	background:white;
+	padding:2px;
+	color:black;
+	text-decoration:none;
+}
+:-moz-placeholder {
+  color: #aaa;
+  font-weight: 300;
+}
+
+::-moz-placeholder {
+  color: #aaa;
+  font-weight: 300;
+  opacity: 1;
+}
+
+::-webkit-input-placeholder {
+  color: #aaa;
+  font-weight: 300;
+}
+
+:-ms-input-placeholder {
+  color: #aaa;
+  font-weight: 300;
+}
+
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
