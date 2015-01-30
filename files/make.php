@@ -39,12 +39,12 @@
 			foreach($valid_files as $file) {
 				$zip->addFile($file,$file);
 			}
-			echo 'Succes! <br> <a class="button" href="MinuteHack.zip">Download</a>';
+			echo '<p>Succes!</p> <br> <a class="button" href="MinuteHack.zip">Download</a>';
 			$zip->close();
 			return file_exists($destination);
 		}else{
 			return false;
-			echo 'Invalid files.';
+			echo '<p>Invalid files :/</p>';
 		}
 	}
 	// Form vars
@@ -88,7 +88,7 @@
 		$lines[] = $buffer;
 	}
 	fclose ($fc);
-	$f=fopen($newfile,"w") or die("couldn't open $file");
+	$f=fopen($newfile,"w") or die("<p>couldn't open $file</p>");
 	foreach($lines as $line){
 		fwrite($f,$line); //place $line back in file
 		if (strstr($line,$key_title)){
@@ -128,7 +128,7 @@
 	$result = create_zip($files,'MinuteHack.zip');
 	?>
 		<br>
-		<a href="../">Back</a>
+		<p><a href="../">Back</a></p>
 	</div>
 	</body>
 </html>

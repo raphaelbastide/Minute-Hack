@@ -4,6 +4,7 @@
 		<meta charset=utf-8 />
 		<title>Minute Hack</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="icon" type="image/gif" href="favicon.gif" />
 	</head>
 	<body>
 		<h1>Minute Hack</h1>
@@ -37,5 +38,6 @@
 			</div>
 			<input type="submit" value="Make it!" class="button">
 		</form>
+		<p><a href="https://github.com/raphaelbastide/Minute-Hack">About</a></p>
 	</body>
 </html>
