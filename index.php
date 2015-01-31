@@ -24,17 +24,19 @@
 				<input type="radio" name="php" value="no" id="php_no" class="switch-input">
 				<label for="php_no" class="switch-label">HTML</label>
 			</div>
-			<div class="switch">
-				<input type="radio" name="js" value="yes" id="js_yes" class="switch-input" checked>
-				<label for="js_yes" class="switch-label">JS</label>
-				<input type="radio" name="js" value="no" id="js_no" class="switch-input">
-				<label for="js_no" class="switch-label">No JS</label>
+			<div class="switch c3">
+				<input type="radio" name="js" value="no_js" id="js" class="switch-input" checked>
+				<label for="js" class="switch-label">no JS</label>
+				<input type="radio" name="js" value="plain_js" id="plain_js" class="switch-input">
+				<label for="plain_js" class="switch-label">plain JS</label>
+				<input type="radio" name="js" value="jquery" id="jquery" class="switch-input">
+				<label for="jquery" class="switch-label">JS + jQuery</label>
 			</div>
 			<div class="switch">
-				<input type="radio" name="jquery" value="yes" id="jquery_yes" class="switch-input" checked>
-				<label for="jquery_yes" class="switch-label">jQuery</label>
-				<input type="radio" name="jquery" value="no" id="jquery_no" class="switch-input">
-				<label for="jquery_no" class="switch-label">Nope</label>
+				<input type="radio" name="readme" value="yes" id="readme_yes" class="switch-input" checked>
+				<label for="readme_yes" class="switch-label">README.md</label>
+				<input type="radio" name="readme" value="no" id="readme_no" class="switch-input">
+				<label for="readme_no" class="switch-label">no README.md</label>
 			</div>
 			<input type="submit" value="Make it!" class="button">
 		</form>

@@ -8,8 +8,33 @@
 	<body>
 		<div class="make">
 	<?php
+	// Form vars
+	$title = $_POST["title"];
+	$css = $_POST["css"];
+	$php = $_POST["php"];
+	$js = $_POST["js"];
+	$readme = $_POST["readme"];
+
 	// First delete previous session’s files
-	unlink('MinuteHack.zip');
+	array_map('unlink', glob("*.zip"));
+
+	// Slugify
+	function slugify($text){
+		$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+		$text = trim($text, '-');
+		if (function_exists('iconv')){
+			$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+		}
+		$text = strtolower($text);
+		$text = preg_replace('~[^-\w]+~', '', $text);
+		if (empty($text)){
+			return 'n-a';
+		}
+		return $text;
+	}
+
+	// Create the new title
+	$slug_title = slugify($title).'.zip';
 
 	/* creates a compressed zip file */
 	function create_zip($files = array(),$destination = '',$overwrite = false) {
@@ -30,7 +55,8 @@
 				}
 			}
 		}
-		//if we have good files...
+
+		//if we have good files, build the zip
 		if(count($valid_files)) {
 			$zip = new ZipArchive();
 			if($zip->open($destination,$overwrite ? ZIPARCHIVE::OVERWRITE : ZIPARCHIVE::CREATE) !== true) {
@@ -39,7 +65,8 @@
 			foreach($valid_files as $file) {
 				$zip->addFile($file,$file);
 			}
-			echo '<p>Succes!</p> <br> <a class="button" href="MinuteHack.zip">Download</a>';
+			global $slug_title;
+			echo '<p>Succes!</p> <br> <a class="button" href="'.$slug_title.'">Download</a>';
 			$zip->close();
 			return file_exists($destination);
 		}else{
@@ -47,63 +74,56 @@
 			echo '<p>Invalid files :/</p>';
 		}
 	}
-	// Form vars
-	$title = $_POST["title"];
-	$css = $_POST["css"];
-	$php = $_POST["php"];
-	$js = $_POST["js"];
-	$jquery = $_POST["jquery"];
+
 
 	// Insert text into files function
 	$key_title = '<meta charset=utf-8 />';
 	$custom_title = '		<title>'.$title.'</title>';
 	$key_css = '<meta charset=utf-8 />';
-	if ($css === "css") {
-		$custom_css = '		<link rel="stylesheet" type="text/css" href="css/main.css" />';
-	}else if ($css === "css_tools"){
-		$custom_css = '		<link rel="stylesheet" type="text/css" href="css/tools.css" />
-		<link rel="stylesheet" type="text/css" href="css/main.css" />';
-	}else if ($css === "stylus"){
-		$custom_css = '		<link rel="stylesheet" type="text/css" href="css/main.styl" />';
+	// CSS
+	$link_css = '<link rel="stylesheet" type="text/css" href="css/main.css" />';
+	$link_css_tools = '<link rel="stylesheet" type="text/css" href="css/tools.css" />';
+	$link_stylus = '<link rel="stylesheet" type="text/css" href="css/main.styl" />';
+	// JS
+	$js_tag = '<script type="text/javascript" src="js/main.js"></script>';
+	$jquery_tag = '<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>';
+	function insert_content($original_file, $target_file, $marker, $content){
+		$data = file_get_contents($original_file);
+		$newdata = str_replace($marker, $content, $data);
+		file_put_contents($target_file, $newdata);
 	}
-	$key_js = '</body>';
-	if ($jquery === "yes") {
-		$custom_js = '	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>';
-	}else if($js === "yes"){
-		$custom_js = '	<script type="text/javascript" src="js/main.js"></script>';
-	}else{
-		$custom_js = '';
-	}
-	$file = "neutral.txt";
-	if ($php === 'yes') {
-		$newfile = 'index.php';
-	}else{
-		$newfile = 'index.html';
-	}
-	copy($file, $newfile) or exit("failed to copy $file");
-	$fc = fopen ($file, "r");
-	while (!feof ($fc)){
-		$buffer = fgets($fc, 4096);
-		$lines[] = $buffer;
-	}
-	fclose ($fc);
-	$f=fopen($newfile,"w") or die("<p>couldn't open $file</p>");
-	foreach($lines as $line){
-		fwrite($f,$line); //place $line back in file
-		if (strstr($line,$key_title)){
-			fwrite($f,$custom_title."\n");
-		}
-		if (strstr($line,$key_css)){
-			fwrite($f,$custom_css."\n");
-		}
-		if (strstr($line,$key_js)){
-			fwrite($f,$custom_js."\n");
-		}
-	}
-	fclose($f);
 
+	// HTML or PHP
+	insert_content('neutral-HTML.txt', 'index.html', '!!title!!', $title);
+	// README
+	if ($readme === 'yes'){
+		insert_content('neutral-README.txt', 'README.md', '!!title!!', $title);
+	}
+	// CSS
+	if ($css === 'css'){
+		insert_content('index.html', 'index.html', '!!css!!', $link_css);
+	}else if ($css === 'css_tools') {
+		insert_content('index.html', 'index.html', '!!css!!', $link_css_tools.'
+		'.$link_css);
+	}else if ($css === 'stylus'){
+		insert_content('index.html', 'index.html', '!!css!!', $link_stylus);
+	}else{
+		insert_content('index.html', 'index.html', '!!css!!', '');
+	}
+	// JS or jQuery
+	if ($js === 'plain_js'){
+		insert_content('index.html', 'index.html', '!!script!!', $js_tag);
+	}else if ($js === 'jquery') {
+		insert_content('index.html', 'index.html', '!!script!!', $jquery_tag.'
+	'.$js_tag);
+	}else{
+		insert_content('index.html', 'index.html', '!!script!!', '');
+	}
+
+
+	// Insert the files in the zip file
 	$files = array();
+	// CSS
 	if ($css === 'css') {
 		array_push($files, 'css/main.css');
 	}else if ($css === 'css_tools'){
@@ -113,19 +133,28 @@
 		array_push($files, 'css/main.styl');
 		array_push($files, 'css/utils.styl');
 	}
+	// PHP
 	if ($php === 'yes') {
+		rename('index.html','index.php');
 		array_push($files, 'index.php');
 	}else{
 		array_push($files, 'index.html');
 	}
-	if ($js === 'yes') {
+	// JS
+	if ($js === 'plain_js') {
 		array_push($files, 'js/main.js');
-	}
-	if ($jquery === 'yes') {
+	}else if ($js === 'jquery') {
+		array_push($files, 'js/main.js');
 		array_push($files, 'js/jquery-1.11.2.min.js');
+	}else{
+		// do nothing
+	}
+	// README
+	if ($readme === 'yes') {
+		array_push($files, 'README.md');
 	}
 	//if true, good; if false, zip creation failed
-	$result = create_zip($files,'MinuteHack.zip');
+	$result = create_zip($files, slugify($title).'.zip');
 	?>
 		<br>
 		<p><a href="../">Back</a></p>
