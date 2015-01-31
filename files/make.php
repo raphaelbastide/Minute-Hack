@@ -8,6 +8,7 @@
 	<body>
 		<div class="make">
 	<?php
+
 	// Form vars
 	$title = $_POST["title"];
 	$css = $_POST["css"];
@@ -155,6 +156,8 @@
 	}
 	//if true, good; if false, zip creation failed
 	$result = create_zip($files, slugify($title).'.zip');
+	header("Content-Disposition: attachment; filename=$slug_title");
+
 	?>
 		<br>
 		<p><a href="../">Back</a></p>

@@ -23,22 +23,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 body {
-  font: 20px/27px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: white;
+  font: 22px/27px "0xa000", courier, monospace;
+  color: cyan;
 	text-align:center;
-	padding:100px;
+	padding:10vh 0;
   background: #000;
 }
-
 .make {
-  margin: 0 auto;
-	color:#444;
-  width: 400px;
-  padding: 20px;
+  margin: 10vh auto 10vh auto;
+  max-width: 700px;
+  width:100%;
 }
-
 input {
   font-family: inherit;
   font-size: inherit;
@@ -47,101 +43,92 @@ input {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 .input {
   display: block;
   width: 100%;
-  height: 38px;
+  height: 40px;
   margin: 2px 0 20px 0;
   font-weight: 500;
 	padding:0 4px;
-
-  background: #fff;
+  color:black;
+  background: cyan;
   border: 0;
 }
 .input:focus {
-  border-color: #1e9ce6;
+  border-color: cyan;
   outline: 0;
 }
-
 .button {
   display: block;
   width: 100%;
-  height: 42px;
-  margin-top: 25px;
-  font-size: 16px;
+  height: 40px;
+  margin-top: 20px;
+  font-size: inherit;
   font-weight: bold;
-  color: #494d59;
+  color: black;
   text-align: center;
-  background: #fcfcfc;
-  border: 2px outset;
-}
-.button:active {
-	border: 2px inset;
+  background: cyan;
+  border:0;
+
 }
 .button:focus {
   outline: 0;
+  background:white;
 }
-
 .switch {
-  height: 32px;
-  margin-bottom: 15px;
-  padding: 4px;
-  background: #333;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 0px;
+  background: #222;
 }
-
 .switch-input {
   display: none;
 }
-
 .switch-label {
   float: left;
   width: 50%;
-  line-height: 32px;
-  color: white;
+  line-height: 40px;
+  color: cyan;
   text-align: center;
   cursor: pointer;
 }
 .c3 .switch-label {
 	width: 33%;
 }
-
 .switch-input:checked + .switch-label {
   font-weight: 500;
-  color: #434248;
-  background: white;
+  color: #000;
+  background: cyan;
 }
 h1{
   margin:0 0 20px;
+  text-transform:uppercase;
 }
 p{
-  font-size:14px;
+  font-size:inherit;
 }
 a{
-	color:#444;
+	color:cyan;
 	text-decoration:none;
 }
 :-moz-placeholder {
-  color: #aaa;
+  color: #000000;
   font-weight: 300;
 }
-
 ::-moz-placeholder {
-  color: #aaa;
+  color: #000000;
   font-weight: 300;
-  opacity: 1;
+  opacity: .3;
 }
-
 ::-webkit-input-placeholder {
-  color: #aaa;
+  color: #000000;
   font-weight: 300;
+  opacity:.3;
 }
-
 :-ms-input-placeholder {
-  color: #aaa;
+  color: #000000;
   font-weight: 300;
 }
-
 ::-moz-focus-inner {
   border: 0;
   padding: 0;
