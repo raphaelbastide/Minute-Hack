@@ -156,7 +156,6 @@
 	}
 	//if true, good; if false, zip creation failed
 	$result = create_zip($files, slugify($title).'.zip');
-	header("Content-Disposition: attachment; filename=$slug_title");
 
 	?>
 		<br>

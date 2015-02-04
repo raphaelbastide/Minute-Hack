@@ -4,7 +4,7 @@ MinuteHack is a micro project architecture generator.
 
 ## How?
 
-Fill a form, get the folder architecture you want.
+Fill a web form, get the folder architecture you want.
 
 ## What?
 
