@@ -10,14 +10,15 @@ Fill a web form, get the folder architecture you want.
 
 Chose what you need for your project:
 
-- CSS or CSS + tools or stylus
+- CSS or stylus
+- CSS reset or normalize
 - PHP or HTML page
 - Plain JavaScript or jQuery or nothing
 - More to come…
 
 ## Similar projects
 
-- [yeoman](http://yeoman.io/) Command Line Tool
+- [yeoman](http://yeoman.io/) A **much more complete** command line Tool.
 
 ## License
 

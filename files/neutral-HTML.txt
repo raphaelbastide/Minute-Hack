@@ -3,10 +3,11 @@
 	<head>
 		<meta charset=utf-8 />
 		<title>!!title!!</title>
+		!!cssextra!!
 		!!css!!
 	</head>
 	<body>
-		
+
 	</body>
 	!!script!!
 </html>

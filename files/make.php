@@ -12,6 +12,7 @@
 	// Form vars
 	$title = $_POST["title"];
 	$css = $_POST["css"];
+	$css_extra = $_POST["css_extra"];
 	$php = $_POST["php"];
 	$js = $_POST["js"];
 	$readme = $_POST["readme"];
@@ -83,6 +84,7 @@
 	$key_css = '<meta charset=utf-8 />';
 	// CSS
 	$link_css = '<link rel="stylesheet" type="text/css" href="css/main.css" />';
+	$link_css_normalize = '<link rel="stylesheet" type="text/css" href="css/normalize.css" />';
 	$link_css_tools = '<link rel="stylesheet" type="text/css" href="css/tools.css" />';
 	$link_stylus = '<link rel="stylesheet" type="text/css" href="css/main.styl" />';
 	// JS
@@ -103,13 +105,18 @@
 	// CSS
 	if ($css === 'css'){
 		insert_content('index.html', 'index.html', '!!css!!', $link_css);
-	}else if ($css === 'css_tools') {
-		insert_content('index.html', 'index.html', '!!css!!', $link_css_tools.'
-		'.$link_css);
 	}else if ($css === 'stylus'){
 		insert_content('index.html', 'index.html', '!!css!!', $link_stylus);
 	}else{
 		insert_content('index.html', 'index.html', '!!css!!', '');
+	}
+	// CSS extra
+	if ($css_extra === 'css_extra') {
+		insert_content('index.html', 'index.html', '!!cssextra!!', $link_css_tools);
+	}else if ($css_extra === 'css_normalize') {
+		insert_content('index.html', 'index.html', '!!cssextra!!', $link_css_normalize);
+	}else{
+		insert_content('index.html', 'index.html', '!!cssextra!!', '');
 	}
 	// JS or jQuery
 	if ($js === 'plain_js'){
@@ -127,12 +134,17 @@
 	// CSS
 	if ($css === 'css') {
 		array_push($files, 'css/main.css');
-	}else if ($css === 'css_tools'){
-		array_push($files, 'css/main.css');
-		array_push($files, 'css/tools.css');
 	}else if ($css === 'stylus'){
 		array_push($files, 'css/main.styl');
 		array_push($files, 'css/utils.styl');
+	}
+	// CSS extra
+	if ($css_extra === 'css_tools'){
+		array_push($files, 'css/tools.css');
+	}else if ($css_extra === 'css_normalize'){
+		array_push($files, 'css/normalize.css');
+	}else{
+		// do nothing
 	}
 	// PHP
 	if ($php === 'yes') {

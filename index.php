@@ -17,13 +17,19 @@
 				<input type="radio" name="php" value="yes" id="php_yes" class="switch-input" checked>
 				<label for="php_yes" class="switch-label">PHP</label>
 			</div>
-			<div class="switch c3">
+			<div class="switch c2">
 				<input type="radio" name="css" value="css" id="css" class="switch-input" checked>
 				<label for="css" class="switch-label">CSS</label>
-				<input type="radio" name="css" value="css_tools" id="css_tools" class="switch-input">
-				<label for="css_tools" class="switch-label">CSS + tools</label>
 				<input type="radio" name="css" value="stylus" id="stylus" class="switch-input">
 				<label for="stylus" class="switch-label">stylus</label>
+			</div>
+			<div class="switch c3">
+				<input type="radio" name="css_extra" value="css_noextra" id="css_extra" class="switch-input" checked>
+				<label for="css_noextra" class="switch-label">none</label>
+				<input type="radio" name="css_extra" value="css_tools" id="css_tools" class="switch-input">
+				<label for="css_tools" class="switch-label">CSS reset</label>
+				<input type="radio" name="css_extra" value="css_normalize" id="css_normalize" class="switch-input">
+				<label for="css_normalize" class="switch-label">normalize</label>
 			</div>
 			<div class="switch c3">
 				<input type="radio" name="js" value="no_js" id="js" class="switch-input" checked>
