@@ -85,6 +85,7 @@
 	// CSS
 	$link_css = '<link rel="stylesheet" type="text/css" href="css/main.css" />';
 	$link_css_normalize = '<link rel="stylesheet" type="text/css" href="css/normalize.css" />';
+	$link_css_skeleton = '<link rel="stylesheet" type="text/css" href="css/skeleton.css" />';
 	$link_css_tools = '<link rel="stylesheet" type="text/css" href="css/tools.css" />';
 	$link_stylus = '<link rel="stylesheet" type="text/css" href="css/main.styl" />';
 	// JS
@@ -115,6 +116,9 @@
 		insert_content('index.html', 'index.html', '!!cssextra!!', $link_css_tools);
 	}else if ($css_extra === 'css_normalize') {
 		insert_content('index.html', 'index.html', '!!cssextra!!', $link_css_normalize);
+	}else if ($css_extra === 'css_skeleton') {
+		insert_content('index.html', 'index.html', '!!cssextra!!', $link_css_normalize."
+		".$link_css_skeleton);
 	}else{
 		insert_content('index.html', 'index.html', '!!cssextra!!', '');
 	}
@@ -142,7 +146,10 @@
 	if ($css_extra === 'css_tools'){
 		array_push($files, 'css/tools.css');
 	}else if ($css_extra === 'css_normalize'){
+		array_push($files, 'css/<b></b>.css');
+	}else if ($css_extra === 'css_skeleton'){
 		array_push($files, 'css/normalize.css');
+		array_push($files, 'css/skeleton.css');
 	}else{
 		// do nothing
 	}

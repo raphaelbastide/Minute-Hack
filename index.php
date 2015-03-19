@@ -23,13 +23,15 @@
 				<input type="radio" name="css" value="stylus" id="stylus" class="switch-input">
 				<label for="stylus" class="switch-label">stylus</label>
 			</div>
-			<div class="switch c3">
-				<input type="radio" name="css_extra" value="css_noextra" id="css_extra" class="switch-input" checked>
+			<div class="switch c4">
+				<input type="radio" name="css_extra" value="css_noextra" id="css_noextra" class="switch-input" checked>
 				<label for="css_noextra" class="switch-label">none</label>
 				<input type="radio" name="css_extra" value="css_tools" id="css_tools" class="switch-input">
 				<label for="css_tools" class="switch-label">CSS reset</label>
 				<input type="radio" name="css_extra" value="css_normalize" id="css_normalize" class="switch-input">
 				<label for="css_normalize" class="switch-label">normalize</label>
+				<input type="radio" name="css_extra" value="css_skeleton" id="css_skeleton" class="switch-input">
+				<label for="css_skeleton" class="switch-label">skeleton</label>
 			</div>
 			<div class="switch c3">
 				<input type="radio" name="js" value="no_js" id="js" class="switch-input" checked>
