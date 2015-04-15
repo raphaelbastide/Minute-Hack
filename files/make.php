@@ -146,7 +146,7 @@
 	if ($css_extra === 'css_tools'){
 		array_push($files, 'css/tools.css');
 	}else if ($css_extra === 'css_normalize'){
-		array_push($files, 'css/<b></b>.css');
+		array_push($files, 'css/normalize.css');
 	}else if ($css_extra === 'css_skeleton'){
 		array_push($files, 'css/normalize.css');
 		array_push($files, 'css/skeleton.css');
