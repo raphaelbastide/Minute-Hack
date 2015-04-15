@@ -7,7 +7,7 @@
 		!!css!!
 	</head>
 	<body>
-
+		!!content!!
 	</body>
 	!!script!!
 </html>

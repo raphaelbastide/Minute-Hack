@@ -17,7 +17,7 @@
 	$js = $_POST["js"];
 	$readme = $_POST["readme"];
 
-	// First delete previous session’s files
+	// First delete previous session’s zip
 	array_map('unlink', glob("*.zip"));
 
 	// Slugify
@@ -98,7 +98,9 @@
 	}
 
 	// HTML or PHP
-	insert_content('neutral-HTML.txt', 'index.html', '!!title!!', $title);
+	insert_content('neutral-HTML.txt', 'temp-HTML.txt', '!!title!!', $title);
+	insert_content('temp-HTML.txt', 'index.html', '!!content!!', "<h1>".$title."</h1>");
+
 	// README
 	if ($readme === 'yes'){
 		insert_content('neutral-README.txt', 'README.md', '!!title!!', $title);
@@ -175,6 +177,9 @@
 	}
 	//if true, good; if false, zip creation failed
 	$result = create_zip($files, slugify($title).'.zip');
+
+	// Delete temporary files to clear the directory
+	unlink('temp-HTML.txt');
 
 	?>
 		<br>
