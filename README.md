@@ -19,7 +19,7 @@ Chose what you need for your project:
 ## Similar projects
 
 - [yeoman](http://yeoman.io/) A **much more complete** command line Tool.
-- [instantblueprint](instantblueprint.com/)
+- [instantblueprint](http://instantblueprint.com/)
 
 ## License
 
