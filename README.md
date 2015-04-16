@@ -18,8 +18,8 @@ Chose what you need for your project:
 
 ## Similar projects
 
-- [yeoman](http://yeoman.io/) A **much more complete** command line Tool.
-- [instantblueprint](http://instantblueprint.com/)
+- [Yeoman](http://yeoman.io/) A **much more complete** command line Tool.
+- [Instantblueprint](http://instantblueprint.com/)
 
 ## License
 
