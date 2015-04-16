@@ -69,7 +69,11 @@ input {
   text-align: center;
   background: cyan;
   border:0;
-
+  text-transform:uppercase;
+}
+.button.download {
+  padding:25px 0 12px 0;
+  margin:20px 0;
 }
 .button:focus {
   outline: 0;

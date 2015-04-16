@@ -47,7 +47,7 @@
 				<input type="radio" name="readme" value="yes" id="readme_yes" class="switch-input" checked>
 				<label for="readme_yes" class="switch-label">README.md</label>
 			</div>
-			<input type="submit" value="DOWNLOAD" class="button swing">
+			<input type="submit" value="Let’s make this shit!" class="button swing">
 		</form>
 		<p><a href="https://github.com/raphaelbastide/Minute-Hack">About</a></p>
 	</body>

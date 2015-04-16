@@ -4,6 +4,8 @@
     <meta charset=utf-8 />
     <title>Minute Hack</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../font/stylesheet.css" />
+
   </head>
   <body>
     <div class="make">
@@ -68,7 +70,8 @@
         $zip->addFile($file,$file);
       }
       global $slug_title;
-      echo '<p>Succes!</p> <br> <a class="button" href="'.$slug_title.'">Download</a>';
+      global $title;
+      echo '<p>'.$title.' has been created!</p> <a class="button download" href="'.$slug_title.'">Download</a>';
       $zip->close();
       return file_exists($destination);
     }else{
@@ -188,7 +191,6 @@
   unlink('temp-HTML.txt');
 
   ?>
-    <br>
     <p><a href="../">Back</a></p>
   </div>
   </body>
