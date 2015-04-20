@@ -45,7 +45,7 @@
 				<input type="radio" name="makefile" value="no" id="makefile_no" class="switch-input">
 				<label for="makefile_no" class="switch-label">no Makefile</label>
 				<input type="radio" name="makefile" value="yes" id="makefile_yes" class="switch-input" checked>
-				<label for="makefile_yes" class="switch-label">Makefile</label>
+				<label for="makefile_yes" class="switch-label">Makefile (beta)</label>
 			</div>
 			<div class="switch c2">
 				<input type="radio" name="readme" value="no" id="readme_no" class="switch-input">
