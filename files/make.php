@@ -17,6 +17,7 @@
   $css_extra = $_POST["css_extra"];
   $php = $_POST["php"];
   $js = $_POST["js"];
+  $makefile = $_POST["makefile"];
   $readme = $_POST["readme"];
 
   // First delete previous session’s zip
@@ -91,6 +92,12 @@
   $link_css_skeleton = '<link rel="stylesheet" type="text/css" href="css/skeleton.css" />';
   $link_css_tools = '<link rel="stylesheet" type="text/css" href="css/tools.css" />';
   $link_stylus = '<link rel="stylesheet" type="text/css" href="css/main.styl" />';
+  $json_stylus ='"stylus": "^0.47.1",
+  "nib": "^1.0.4 ",
+  "autoprefixer-stylus":"^0.3.0",';
+  $makefile_stylus = 'STYLUS = node_modules/.bin/stylus
+  NIB = ./node_modules/nib/lib/nib';
+  $readme_makefile = 'In the terminal, run `nmp install` to install dependencies, then `make` to watch stylus files and compress JS files.';
   // JS
   $js_tag = '<script type="text/javascript" src="js/main.js"></script>';
   $jquery_tag = '<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>';
@@ -113,6 +120,25 @@
   // README
   if ($readme === 'yes'){
     insert_content('preg','neutral-README.txt', 'README.md', '!!title!!', $title);
+    if ($makefile === 'yes') {
+       insert_content('rm','README.md', 'README.md', '!!makefile!!', $readme_makefile);
+    }else{
+       insert_content('rm','README.md', 'README.md', '!!makefile!!', '');
+    }
+  }
+  // MAKEFILE
+  if ($makefile === 'yes'){
+    insert_content('preg','neutral-package-json.txt', 'package.json', '!!title!!', slugify($title));
+    insert_content('preg','neutral-makefile.txt', 'Makefile', '!!title!!', $title);
+
+    // To complete:
+    if ($css === 'stylus'){
+       insert_content('str','package.json', 'package.json', '!!stylus!!', $json_stylus);
+    //   insert_content('str','Makefile', 'Makefile', '!!stylus!!', $makefile_stylus);
+    }else{
+       insert_content('rm','package.json', 'package.json', '!!stylus!!', '');
+    //   insert_content('rm','makefile', 'makefile', '!!stylus!!', '');
+    }
   }
   // CSS
   if ($css === 'css'){
@@ -184,12 +210,18 @@
   if ($readme === 'yes') {
     array_push($files, 'README.md');
   }
+  // MAKEFILE
+  if ($makefile === 'yes') {
+    array_push($files, 'package.json');
+    array_push($files, 'Makefile');
+  }
   //if true, good; if false, zip creation failed
   $result = create_zip($files, slugify($title).'.zip');
 
   // Delete temporary files to clear the directory
   unlink('temp-HTML.txt');
-
+  unlink('package.json');
+  unlink('Makefile');
   ?>
     <p><a href="../">Back</a></p>
   </div>

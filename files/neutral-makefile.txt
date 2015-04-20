@@ -1,0 +1,25 @@
+# Makefile for !!title!!
+
+UGLIFY = ./node_modules/.bin/uglifyjs
+STYLUS = node_modules/.bin/stylus
+NIB = ./node_modules/nib/lib/nib
+
+all: js css
+
+check-uglify:
+	@test -x ${UGLIFY} || { echo "Not sure Uglify-js is installed. Try $$ npm install."; exit 1; }
+
+js: check-uglify
+	@echo "Minifying JS into main-min.js";
+	cat 	js/main.js \
+	| ${UGLIFY} -o js/main-min.js
+	@echo "✓";
+
+css: css/main.styl
+	echo "Watching Stylus, output in maint-min.css";\
+	$(STYLUS) css/main.styl -u $(NIB) -w -o css/;\
+
+deps:
+	npm install
+
+.PHONY: all check-uglify js css deps

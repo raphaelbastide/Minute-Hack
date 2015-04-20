@@ -41,7 +41,13 @@
 				<input type="radio" name="js" value="jquery" id="jquery" class="switch-input">
 				<label for="jquery" class="switch-label">JS + jQuery</label>
 			</div>
-			<div class="switch">
+			<div class="switch c2">
+				<input type="radio" name="makefile" value="no" id="makefile_no" class="switch-input">
+				<label for="makefile_no" class="switch-label">no Makefile</label>
+				<input type="radio" name="makefile" value="yes" id="makefile_yes" class="switch-input" checked>
+				<label for="makefile_yes" class="switch-label">Makefile</label>
+			</div>
+			<div class="switch c2">
 				<input type="radio" name="readme" value="no" id="readme_no" class="switch-input">
 				<label for="readme_no" class="switch-label">no README.md</label>
 				<input type="radio" name="readme" value="yes" id="readme_yes" class="switch-input" checked>
