@@ -91,7 +91,7 @@
   $link_css_normalize = '<link rel="stylesheet" type="text/css" href="css/normalize.css" />';
   $link_css_skeleton = '<link rel="stylesheet" type="text/css" href="css/skeleton.css" />';
   $link_css_tools = '<link rel="stylesheet" type="text/css" href="css/tools.css" />';
-  $link_stylus = '<link rel="stylesheet" type="text/css" href="css/main.styl" />';
+  $link_stylus = '<link rel="stylesheet" type="text/css" href="css/main.css" />';
   $json_stylus ='"stylus": "^0.47.1",
   "nib": "^1.0.4 ",
   "autoprefixer-stylus":"^0.3.0",';
@@ -128,7 +128,7 @@
   }
   // MAKEFILE
   if ($makefile === 'yes'){
-    insert_content('preg','neutral-package-json.txt', 'package.json', '!!title!!', slugify($title));
+    insert_content('pregrives','neutral-package-json.txt', 'package.json', '!!title!!', slugify($title));
     insert_content('preg','neutral-makefile.txt', 'Makefile', '!!title!!', $title);
 
     // To complete:
@@ -220,8 +220,10 @@
 
   // Delete temporary files to clear the directory
   unlink('temp-HTML.txt');
-  unlink('package.json');
-  unlink('Makefile');
+  if ($makefile === 'yes') {
+    unlink('package.json');
+    unlink('Makefile');
+  }
   ?>
     <p><a href="../">Back</a></p>
   </div>

@@ -16,7 +16,7 @@ js: check-uglify
 	@echo "✓";
 
 css: css/main.styl
-	echo "Watching Stylus, output in maint-min.css";\
+	echo "Watching Stylus, output in main-min.css";\
 	$(STYLUS) css/main.styl -u $(NIB) -w -o css/;\
 
 deps:
