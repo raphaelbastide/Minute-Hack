@@ -26,8 +26,8 @@
       <div class="switch c4">
         <input type="radio" name="css_extra" value="css_noextra" id="css_noextra" class="switch-input" checked>
         <label for="css_noextra" class="switch-label">none</label>
-        <input type="radio" name="css_extra" value="css_tools" id="css_tools" class="switch-input">
-        <label for="css_tools" class="switch-label">CSS reset</label>
+        <input type="radio" name="css_extra" value="css_reset" id="css_reset" class="switch-input">
+        <label for="css_reset" class="switch-label">CSS reset</label>
         <input type="radio" name="css_extra" value="css_normalize" id="css_normalize" class="switch-input">
         <label for="css_normalize" title="A modern, HTML5-ready alternative to CSS resets" class="switch-label">Normalize</label>
         <input type="radio" name="css_extra" value="css_skeleton" id="css_skeleton" class="switch-input">

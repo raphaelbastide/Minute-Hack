@@ -90,7 +90,7 @@
   $link_css = '<link rel="stylesheet" type="text/css" href="css/main.css" />';
   $link_css_normalize = '<link rel="stylesheet" type="text/css" href="css/normalize.css" />';
   $link_css_skeleton = '<link rel="stylesheet" type="text/css" href="css/skeleton.css" />';
-  $link_css_tools = '<link rel="stylesheet" type="text/css" href="css/tools.css" />';
+  $link_css_reset = '<link rel="stylesheet" type="text/css" href="css/reset.css" />';
   $link_stylus = '<link rel="stylesheet" type="text/css" href="css/main.css" />';
   $json_stylus ='"stylus": "^0.47.1",
   "nib": "^1.0.4 ",
@@ -149,8 +149,8 @@
     insert_content('rm','index.html', 'index.html', '!!css!!', '');
   }
   // CSS extra
-  if ($css_extra === 'css_extra') {
-    insert_content('str','index.html', 'index.html', '!!cssextra!!', $link_css_tools);
+  if ($css_extra === 'css_reset') {
+    insert_content('str','index.html', 'index.html', '!!cssextra!!', $link_css_reset);
   }else if ($css_extra === 'css_normalize') {
     insert_content('str','index.html', 'index.html', '!!cssextra!!', $link_css_normalize);
   }else if ($css_extra === 'css_skeleton') {
@@ -180,8 +180,8 @@
     array_push($files, 'css/utils.styl');
   }
   // CSS extra
-  if ($css_extra === 'css_tools'){
-    array_push($files, 'css/tools.css');
+  if ($css_extra === 'css_reset'){
+    array_push($files, 'css/reset.css');
   }else if ($css_extra === 'css_normalize'){
     array_push($files, 'css/normalize.css');
   }else if ($css_extra === 'css_skeleton'){
