@@ -20,6 +20,7 @@ Chose what you need for your project:
 
 - [Yeoman](http://yeoman.io/) A **much more complete** command line Tool.
 - [Instantblueprint](http://instantblueprint.com/)
+- [Initializr](http://www.initializr.com/)
 
 ## License
 
